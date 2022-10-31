@@ -1,0 +1,68 @@
+import { Component } from 'react';
+import { signUp } from '../utilities/users-service'
+//Flow: SignUpForm.jsx <--> users-service.js <--> users-api.js <-Internet-> server.js (Express)
+
+export default class SignUpForm extends Component {
+    // state is always an object with a property for each "piece" of state
+    state = {
+        name: '',
+        email: '',
+        password: '',
+        confirm: '',
+        error: ''
+      };
+
+      handleChange = (evt) => {
+        //update anything inside the state
+        this.setState({ [evt.target.name]: evt.target.value, error: '' }) 
+      }
+      
+      handleSubmit = async (evt) => {
+        //prevent form refreshing (or it will lose info)
+        evt.preventDefault()  
+        // alert(JSON.stringify(this.state)) //stringify required b/c alert box only displays a string
+
+        try {
+            //create the formData to send to the backend
+            const formData = {
+                name: this.state.name,
+                email: this.state.email,
+                password: this.state.password
+            }
+            //pass the formData to the SignUp function (in users-service)
+            const user = await signUp(formData)
+            console.log(user);
+        } catch {
+            //if we have an error
+            this.setState({error: 'Try Again'})
+        }
+      }
+
+    render() {
+        const disable = this.state.password !== this.state.confirm;
+        return (
+          <div>
+            <div className="form-container">
+              <form autoComplete="off" onSubmit={this.handleSubmit}>
+                <label>Name</label>
+                <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
+                {/* value is connected to state above = empty now, it will change by onChange */}
+
+                <label>Email</label>
+                <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
+
+                <label>Password</label>
+                <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
+
+                <label>Confirm</label>
+                <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
+
+                <button type="submit" disabled={disable}>SIGN UP</button> 
+                {/* disabled={disable} <-cannot signup until meet the req. @line 14 */}
+              </form>
+            </div>
+            <p className="error-message">&nbsp;{this.state.error}</p>
+          </div>
+        );
+    }
+  }
