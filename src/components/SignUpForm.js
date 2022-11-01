@@ -31,7 +31,7 @@ export default class SignUpForm extends Component {
             }
             //pass the formData to the SignUp function (in users-service)
             const user = await signUp(formData)
-            console.log(user);
+            return setUser();
         } catch {
             //if we have an error
             this.setState({error: 'Try Again'})

@@ -17,6 +17,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 //Routes
 app.use('/api/users', require('./routes/api/users'))
+app.use('/api/users/login', require('./routes/api/users'))
 
 //Catch All to serve the production app
 app.get('/*', (req, res) => {
