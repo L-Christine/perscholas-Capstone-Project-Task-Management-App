@@ -20,7 +20,8 @@ export default class SignUpForm extends Component {
       handleSubmit = async (evt) => {
         //prevent form refreshing (or it will lose info)
         evt.preventDefault()  
-        // alert(JSON.stringify(this.state)) //stringify required b/c alert box only displays a string
+        // alert(JSON.stringify(this.state)) 
+        //stringify required alert box only displays a string
 
         try {
             //create the formData to send to the backend
@@ -31,10 +32,10 @@ export default class SignUpForm extends Component {
             }
             //pass the formData to the SignUp function (in users-service)
             const user = await signUp(formData)
-            return setUser();
+            this.props.setUser(user)
         } catch {
             //if we have an error
-            this.setState({error: 'Try Again'})
+            this.setState({ error: "Sign Up Failed - Try Again!" })
         }
       }
 

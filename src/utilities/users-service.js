@@ -12,7 +12,7 @@ export async function signUp(userData) {
   } catch (err) {
     console.log(err);
   }
-  }
+}
 
 export function getToken() {
   //get token from local storage
@@ -21,7 +21,7 @@ export function getToken() {
 
   //if we have a token, change a string to an object. payload starts after . in encoded token
   const payload = JSON.parse(atob(token.split('.')[1])) //index 1 b/c token has 3 section (header, payload, signature). payload is [1]
-  console.log(payload);
+
   // A JWT's exp is expressed in s, not ms, so convert. 1 day in sec == token expired
   if (payload.exp < Date.now() /1000){
     // Token has expired - remove it from localStorage
@@ -41,11 +41,11 @@ export function logOut() {
   localStorage.removeItem('token')
 }
 
-export async function logIn(userData) {
+export async function logIn(credentials) {
   try{
     // Delegate the network request code to the users-api.js API module
     // which will ultimately return a JSON Web Token (JWT)
-    const token = await usersAPI.logIn(userData);
+    const token = await usersAPI.logIn(credentials);
     //persist the 'token'
     localStorage.setItem('token', token)
     //update 
@@ -53,4 +53,4 @@ export async function logIn(userData) {
   } catch (err) {
     console.log(err);
   }
-  }
+}

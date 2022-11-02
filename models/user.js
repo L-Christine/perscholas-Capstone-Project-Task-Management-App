@@ -4,31 +4,37 @@ const bcrypt = require('bcrypt')
 const Schema = mongoose.Schema;
 //for password. SALT_ROUND is a processing time to perform the hash
 const SALT_ROUNDS = 6
-
-const userSchema = new Schema({
-  name: {type: String, required: true},
-  email: {
-    type: String,
-    unique: true,
-    trim: true,
-    lowercase: true,
-    required: true
+//required for authentication
+const userSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      unique: true,
+      trim: true,
+      lowercase: true,
+      required: true,
+    },
+    password: {
+      type: String,
+      trim: true,
+      minLength: 3,
+      required: true,
+    },
   },
-  password: {
-    type: String,
-    trim: true,
-    minLength: 3,
-    required: true
+  {
+    timestamps: true,
+    toJSON: {
+      transform: function (doc, ret) {
+        delete ret.password;
+        return ret;
+      },
+    },
   }
-}, {
-  timestamps: true,
-  toJSON: {
-    transform: function(doc, ret) {
-      delete ret.password;
-      return ret;
-    }
-  }
-});
+);
 
 //before save, run async fx
 userSchema.pre('save', async function(next) {

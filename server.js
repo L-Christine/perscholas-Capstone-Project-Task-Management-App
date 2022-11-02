@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const favicon = require('serve-favicon');
 const path = require('path');
+
 require('dotenv').config()
 //connecting to the DB
 require('./config/database');
@@ -17,13 +18,12 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 //Routes
 app.use('/api/users', require('./routes/api/users'))
-app.use('/api/users/login', require('./routes/api/users'))
 
-//Catch All to serve the production app
+//Catch All is necessary to return the index.html on all non-AJAX requests
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });
 
-app.listen(PORT, function() {
-    console.log(`Express app running on port ${PORT}`)
-  });
+app.listen(PORT, () => {
+    console.log(`Server running on port: ${PORT}`);
+})

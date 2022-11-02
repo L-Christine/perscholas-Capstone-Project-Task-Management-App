@@ -1,32 +1,48 @@
-const User = require('../../models/user')
+const User = require('../../models/user');
 const jwt = require('jsonwebtoken')
-
-// async function create (req, res) {
-//     try {
-//         // Add the user to the database
-//         const user = await User.create(req.body)
-//     } catch (err){
-//         res.status(400).json(err)
-//     }
-// }
+const bcrypt = require('bcrypt')
 
 async function create(req, res) {
     try {
-        //add the user to the DB
-        const user = await User.create(req.body)
-        //Create JWT token
+        // Add the user -> DB
+        const user = await User.create(req.body);
+        const token = createJWT(user);
+        // use res.json -> send back a string
+        res.json(token);
+      } catch (err) {
+        res.status(400).json(err);
+      }
+  }
+
+async function logIn(req, res) {
+  try {
+      // find user on database
+      const user = await User.findOne({email: req.body.email})
+
+      // use bcrypt -> compare passwords
+      const match = await bcrypt.compare(req.body.password, user.password)
+
+      if (match){
+        // if pw match, send token
         const token = createJWT(user)
-        //send token to client
         res.json(token)
+      }
+      
     } catch (err) {
-        res.state(400).json(err)
+      res.status(400).json('Bad Credentials');
     }
-}
+  }
 
-//Helper function for signup and login. It will create JWToken
-function createJWT(user) {
-    return jwt.sign({ user },process.env.SECRET,{ expiresIn: '24h' })} //user = payload
+  function createJWT(user) {
+    return jwt.sign(
+      // data payload
+      { user },
+      process.env.SECRET,
+      { expiresIn: '24h' }
+      );
+    }
 
-module.exports = {
-    create
-}
+  module.exports = {
+    create,
+    logIn
+  };
