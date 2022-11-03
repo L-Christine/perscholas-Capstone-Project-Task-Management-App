@@ -1,5 +1,6 @@
-import * as usersAPI from '../utilities/users-api'
+import * as usersAPI from './users-api'
 
+//====Sign Up fx
 export async function signUp(userData) {
   try{
     // Delegate the network request code to the users-api.js API module
@@ -14,6 +15,7 @@ export async function signUp(userData) {
   }
 }
 
+//====Get Token fx
 export function getToken() {
   //get token from local storage
   const token = localStorage.getItem('token')
@@ -31,20 +33,22 @@ export function getToken() {
   return token //token returned if token is valid
 }
 
+//====Get User fx
 //if you have a token, then sign in. if not, you get null
 export function getUser() {
   const token = getToken()
-  return token ? JSON.parse(atob(token.split('.')[1])).user : null
+  return (token ? JSON.parse(atob(token.split('.')[1])).user : null)
 }
 
+//====Log Out fx
 export function logOut() {
   localStorage.removeItem('token')
 }
 
+//====Log In fx
 export async function logIn(credentials) {
   try{
-    // Delegate the network request code to the users-api.js API module
-    // which will ultimately return a JSON Web Token (JWT)
+    // Delegate the network request code to the users-api.js API module which will ultimately return a JSON Web Token (JWT)
     const token = await usersAPI.logIn(credentials);
     //persist the 'token'
     localStorage.setItem('token', token)
@@ -53,4 +57,11 @@ export async function logIn(credentials) {
   } catch (err) {
     console.log(err);
   }
+}
+
+//====Check Token fx
+export function checkToken() {
+  return usersAPI.checkToken()
+    // checkToken returns a string, but let's make it a Date object for more flexibility
+    .then(dateStr => new Date(dateStr));
 }

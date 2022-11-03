@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      
+      {/* when user is logged in, show NavBar, if not, show AuthPage */}
       {user ? (
       <>
       <NavBar user={user} setUser={setUser}/>
