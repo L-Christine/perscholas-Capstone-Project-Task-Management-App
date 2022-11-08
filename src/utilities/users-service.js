@@ -2,7 +2,6 @@ import * as usersAPI from './users-api'
 
 //====Sign Up fx
 export async function signUp(userData) {
-  try{
     // Delegate the network request code to the users-api.js API module
     // which will ultimately return a JSON Web Token (JWT)
     const token = await usersAPI.signUp(userData);
@@ -10,9 +9,6 @@ export async function signUp(userData) {
     localStorage.setItem('token', token)
     //update 
     return getUser()
-  } catch (err) {
-    console.log(err);
-  }
 }
 
 //====Get Token fx
@@ -47,16 +43,12 @@ export function logOut() {
 
 //====Log In fx
 export async function logIn(credentials) {
-  try{
     // Delegate the network request code to the users-api.js API module which will ultimately return a JSON Web Token (JWT)
     const token = await usersAPI.logIn(credentials);
     //persist the 'token'
     localStorage.setItem('token', token)
     //update 
     return getUser()
-  } catch (err) {
-    console.log(err);
-  }
 }
 
 //====Check Token fx

@@ -7,7 +7,7 @@ export default function AuthPage({setUser}) {
   const [showSignUp, setShowSignUp] = useState(true); 
   return (
     <main>
-        <h1>AuthPage</h1>
+        <h1>Welcome</h1>
         {/* show sign up form(default), if not, show log in form */}
         {showSignUp ? <SignUpForm setUser={setUser} /> : <LoginForm setUser={setUser} />}
 

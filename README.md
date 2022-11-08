@@ -1,6 +1,6 @@
-# MERN-Stack Infrastructure
+# Task Management Application
 
-Clone this repo to provide the starter code for a comprehensive MERN-Stack project including token-based authentication.
+Task Management Application using CRUD & MERN stack
 
 # Getting Started with Create React App
 
