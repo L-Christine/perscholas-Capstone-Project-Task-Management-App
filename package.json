@@ -43,19 +43,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3001",
-  "description": "Task Management Application using CRUD & MERN stack",
-  "main": "server.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/L-Christine/perscholas-mern-infrastructure.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/L-Christine/perscholas-mern-infrastructure/issues"
-  },
-  "homepage": "https://github.com/L-Christine/perscholas-mern-infrastructure#readme"
+  "proxy": "http://localhost:3001"
 }
