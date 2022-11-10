@@ -25,7 +25,8 @@ export default class SignUpForm extends Component {
       try {
           //create the formData to send to the backend
           const formData = {
-              name: this.state.name,
+              firstName: this.state.firstName,
+              lastName: this.state.lastName,
               email: this.state.email,
               password: this.state.password
           }

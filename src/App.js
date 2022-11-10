@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { getUser } from './utilities/users-service'
+import './App.css';
+import NavBar from './components/NavBar';
 import AuthPage from './pages/AuthPage';
 import MainPage from './pages/MainPage';
-import NavBar from './components/NavBar';
-import './App.css';
+import TaskBoard from './components/TaskBoard';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   //state to hold the user data. null == not logged in
@@ -16,6 +18,7 @@ function App() {
       {user ? (
       <>
       <NavBar user={user} setUser={setUser}/>
+      <TaskBoard />
       <Routes>
         <Route path='/main' element={<MainPage />} />
       </Routes> 

@@ -1,13 +1,14 @@
-const User = require('../../models/user');
+const User = require('../../models/userSchema');
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
 async function create(req, res) {
     try {
-        // Add the user -> DB
+        //add the user to DB
         const user = await User.create(req.body);
+        //token will be a string
         const token = createJWT(user);
-        // use res.json -> send back a string
+        //use res.json -> send back a string
         res.json(token);
       } catch (err) {
         res.status(400).json(err);
@@ -34,12 +35,14 @@ async function logIn(req, res) {
     }
   }
 
+  /* Helper Functions */
+
 function createJWT(user) {
   return jwt.sign(
     // data payload
     { user },
     process.env.SECRET,
-    { expiresIn: '24h' }
+    { expiresIn: '24h' } //token expiry time
     );
   }
 
