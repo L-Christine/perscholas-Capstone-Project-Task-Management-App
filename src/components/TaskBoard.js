@@ -2,7 +2,9 @@ import { useState } from 'react'
 import TaskForm from './TaskForm'
 
 export default function TaskBoard() {
+  //useState for task
   const [taskList, setTaskList] = useState([])
+  //useState for modal
   const [showModal, setShowModal] = useState(false);
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
