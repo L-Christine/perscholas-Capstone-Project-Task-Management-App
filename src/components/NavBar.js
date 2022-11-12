@@ -11,8 +11,7 @@ export default function NavBar({ user, setUser }) {
 
     return(
         <nav>
-            <NavLink to="/main">Main</NavLink>
-            &nbsp; | &nbsp;<span>Welcome, {user.name}</span>&nbsp; | &nbsp;
+            <NavLink to="/board">Board</NavLink> &nbsp; | &nbsp; <span>Welcome, {user.name}</span>&nbsp; | &nbsp;
             <NavLink to="" onClick={handleLogOut}>Log Out</NavLink>
         </nav>
         
