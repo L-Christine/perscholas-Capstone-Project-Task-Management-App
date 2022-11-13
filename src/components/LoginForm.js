@@ -29,8 +29,8 @@ return (
   <div>
     <div className="form-container" onSubmit={handleSubmit}>
       <form autoComplete="off" >
-        <label>Email</label>
-        <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
+        <label>User ID</label>
+        <input type="text" name="userId" value={credentials.userId} onChange={handleChange} required />
         <label>Password</label>
         <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
         <button type="submit">LOG IN</button>

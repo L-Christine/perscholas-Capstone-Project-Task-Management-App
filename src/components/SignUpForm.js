@@ -5,9 +5,9 @@ import { signUp } from '../utilities/users-service'
 export default class SignUpForm extends Component {
     // state is always an object with a property for each "piece" of state
     state = {    
-      firstName: '',
-      lastName: '',
+      name: '',
       email: '',
+      userId: '',
       password: '',
       confirm: '',
       error: ''
@@ -25,9 +25,9 @@ export default class SignUpForm extends Component {
       try {
           //create the formData to send to the backend
           const formData = {
-              firstName: this.state.firstName,
-              lastName: this.state.lastName,
+              name: this.state.name,
               email: this.state.email,
+              userId: this.state.userId,
               password: this.state.password
           }
           //pass the formData to the SignUp function (in users-service)
@@ -45,15 +45,15 @@ export default class SignUpForm extends Component {
           <div>
             <div className="form-container">
               <form autoComplete="off" onSubmit={this.handleSubmit}>
-                <label>First Name</label>
-                <input type="text" name="name" value={this.state.firstName} onChange={this.handleChange} required />
+                <label>Name</label>
+                <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
                 {/* value is connected to state above = empty now, it will change by onChange */}
-
-                <label>Last Name</label>
-                <input type="text" name="name" value={this.state.lastName} onChange={this.handleChange} required />
 
                 <label>Email</label>
                 <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
+
+                <label>User ID</label>
+                <input type="userId" name="userId" value={this.state.userId} onChange={this.handleChange} required />
 
                 <label>Password</label>
                 <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />

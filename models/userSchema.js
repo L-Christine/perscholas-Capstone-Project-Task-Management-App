@@ -7,11 +7,7 @@ const SALT_ROUNDS = 6
 //required for authentication
 const userSchema = new Schema(
   {
-    firstName: {
-      type: String,
-      required: true
-    },
-    lastName: {
+    name: {
       type: String,
       required: true
     },
