@@ -5,6 +5,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import AuthPage from './pages/AuthPage';
 import BoardPage from './pages/BoardPage';
+import Header from './components/layout/Header'
 
 function App() {
   //state to hold the user data. null == not logged in
@@ -16,12 +17,12 @@ function App() {
       {user ? (
       <>
       <NavBar user={user} setUser={setUser}/>
-      <BoardPage />
+
+      <Header />
+
       <Routes>
         {/* client-side route that renders the component instance if the path matches the url in the address bar */}
         <Route path='/board' element={<BoardPage />} />
-        {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
-        <Route path="/*" element={<Navigate to="/board" />} />
       </Routes> 
       </>
       ): (<AuthPage setUser={setUser}/>)

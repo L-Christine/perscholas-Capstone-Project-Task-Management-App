@@ -21,9 +21,6 @@ app.use(require('./config/checkToken'));
 //Routes
 app.use('/api/users', require('./routes/api/users'))
 
-// Protect the API routes
-app.use('/api/tasks', ensureLoggedIn, require('./routes/api/tasks'))
-
 //Catch All is necessary to return the index.html on all non-AJAX requests
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
