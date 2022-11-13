@@ -18,6 +18,13 @@ const userSchema = new Schema(
       lowercase: true,
       required: true
     },
+    userId: {
+      type: String,
+      unique: true,
+      trim: true,
+      lowercase: true,
+      required: true
+    },
     password: {
       type: String,
       trim: true,

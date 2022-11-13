@@ -15,11 +15,11 @@ async function create(req, res) {
       }
   }
 
-//query user with an email & verify the pw, if it's matching with the one in DB (using bcrypt compare method)
+//query user with an userId & verify the pw, if it's matching with the one in DB (using bcrypt compare method)
 async function logIn(req, res) {
   try {
-      // find user on database based on their email
-      const user = await User.findOne({email: req.body.email})
+      // find user on database based on their user id
+      const user = await User.findOne({userId: req.body.userId})
 
       // use bcrypt -> compare pw (req.body.password=pw you entered, user.password=pw in DB)
       const match = await bcrypt.compare(req.body.password, user.password)
