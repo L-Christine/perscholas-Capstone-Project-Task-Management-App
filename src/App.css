@@ -21,9 +21,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.3em;
     font-size: 14px;
-    /* background-color: var(--tan-4);
-    padding: 2vmin;
-    height: 100vh; */
   }
   
 .App {

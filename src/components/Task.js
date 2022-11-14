@@ -1,12 +1,12 @@
 
-export default function Task() {
+export default function Task(props) {
+  const { task } = props
+
   return (
-    <div className="task">
-        <li className="taskItem">task</li>
-        <li className="taskItem">task</li>
-        <li className="taskItem">task</li>
-        <li className="taskItem">task</li>
-        
-    </div>
+    <>
+      <li className="taskItem">
+        {task.title}
+      </li>
+    </>
   )
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { getUser } from './utilities/users-service'
 import './App.css';
@@ -20,9 +20,9 @@ function App() {
       <BoardBar />
       <Board />
 
-      <Routes>
         {/* client-side route that renders the component instance if the path matches the url in the address bar */}
-        {/* <Route path='/board' element={<BoardPage />} /> */}
+      <Routes>
+        {/* <Route path='/board' element={<Board />} /> */}
       </Routes> 
       </>
       ): (<AuthPage setUser={setUser}/>)
