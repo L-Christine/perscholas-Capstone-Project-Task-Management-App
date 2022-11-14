@@ -4,8 +4,7 @@ import { getUser } from './utilities/users-service'
 import './App.css';
 import NavBar from './components/NavBar';
 import AuthPage from './pages/AuthPage';
-import BoardBar from './components/BoardBar';
-import Board from './components/Board';
+
 
 function App() {
   //state to hold the user data. null == not logged in 
@@ -17,8 +16,7 @@ function App() {
       {user ? (
       <>
       <NavBar user={user} setUser={setUser}/>
-      <BoardBar />
-      <Board />
+
 
         {/* client-side route that renders the component instance if the path matches the url in the address bar */}
       <Routes>
