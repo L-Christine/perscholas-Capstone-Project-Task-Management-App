@@ -5,13 +5,13 @@ const path = require('path');
 const ensureLoggedIn = require('./config/ensureLoggedIn')
 
 require('dotenv').config()
-//connecting to the DB
+//Connecting to the DB
 require('./config/database');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-//middleware
+//Middleware
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));

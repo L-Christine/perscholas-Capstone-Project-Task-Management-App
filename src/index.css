@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --white: #FFFFFF;
   --tan-1: #FBF9F6;
   --tan-2: #E7E2DD;
@@ -108,7 +108,7 @@ input {
   border: .1vmin solid var(--tan-3);
   border-radius: .5vmin;
   color: var(--text-dark);
-  background-image: none !important; /* prevent lastpass */
+  background-image: none !important;
   outline: none;
 }
 
@@ -149,4 +149,4 @@ button:disabled, form:invalid button[type="submit"] {
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
-}
+} */
