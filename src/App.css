@@ -103,29 +103,29 @@ body {
     border-bottom-right-radius: var(--column-border);
 }
 
-.column ul {
+ul.taskList {
     list-style-type: none;
     margin: 0;
     max-height: calc(100% - var(--column-px) - var(--column-px));
     overflow-y: auto;
 }
 
-.column ul::-webkit-scrollbar {
+ul.taskList::-webkit-scrollbar {
     -webkit-appearance: none;
 }
 
-.column ul::-webkit-scrollbar:vertical {
+ul.taskList::-webkit-scrollbar:vertical {
     width: 14px;
 }
 
-.column ul::-webkit-scrollbar-thumb {
+ul.taskList::-webkit-scrollbar-thumb {
     background-color: var(--color-3);
     border: 4px solid transparent;
     border-radius: 8px;
     background-clip: padding-box;
 }
 
-.column li {
+li.taskItem {
     background-color: var(--white);
     padding: var(--gap);
     border-radius: var(--card-border);
@@ -133,6 +133,6 @@ body {
 }
 
 /* Do not apply <li> style (above) to the last child */
-.column li:not(:last-child) {
+li.taskItem:not(:last-child) {
     margin-bottom: var(--gap);
 }
