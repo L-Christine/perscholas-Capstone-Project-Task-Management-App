@@ -10,6 +10,8 @@ Add a task to the blank textbox and press submit button. This will make a list o
 You can add, edit, or delete the tasks.
 Once you are done with the tasks, click the checkbox and 'incomplete' status will change to 'complete.'
 
+**Edit function is not available
+
 ## Images
 <img src='./public/readme1.JPG'>
 <img src='./public/readme2.JPG'>
