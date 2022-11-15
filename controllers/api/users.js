@@ -15,11 +15,11 @@ async function create(req, res) {
       }
   }
 
-//query user with an userId & verify the pw, if it's matching with the one in DB (using bcrypt compare method)
+//query user with an email & verify the pw, if it's matching with the one in DB (using bcrypt compare method)
 async function logIn(req, res) {
   try {
       // find user on database based on their user id
-      const user = await User.findOne({userId: req.body.userId})
+      const user = await User.findOne({email: req.body.email})
 
       // use bcrypt -> compare pw (req.body.password=pw you entered, user.password=pw in DB)
       const match = await bcrypt.compare(req.body.password, user.password)
@@ -34,6 +34,30 @@ async function logIn(req, res) {
       res.status(400).json('Bad Credentials');
     }
   }
+
+async function getUserInfo(req, res) {
+  try{
+    const userData = await User.findOne(req.body.email).select('name email')
+    return res.status(200).json(userData)
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
+
+async function updateUserInfo(req, res) {
+  try{
+    const updateUser = await User.findOneAndUpdate(req.body.email, {
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password
+    },{
+      new: true
+    }).select('name email password')
+    return res.status(200).json(updateUser)
+  } catch (err) {
+    res.status(400).json(err)
+  }
+}
 
   /* Helper Functions */
 
@@ -56,5 +80,7 @@ function checkToken(req, res) {
   module.exports = {
     create,
     logIn,
-    checkToken
+    checkToken,
+    getUserInfo,
+    updateUserInfo
   };

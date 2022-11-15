@@ -5,9 +5,13 @@ const usersCtrl = require('../../controllers/api/users');
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 // POST /api/users
-router.post('/users', usersCtrl.create);
+router.post('/', usersCtrl.create);
 // POST /api/users/login
-router.post("/users/login", usersCtrl.logIn);
+router.post("/login", usersCtrl.logIn);
+// GET /api/users/info
+router.get('/info', usersCtrl.getUserInfo)
+// PUT /api/users/info
+router.put('/info', usersCtrl.updateUserInfo)
 
 // Insert ensureLoggedIn on all routes that need protecting
 router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);

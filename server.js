@@ -3,8 +3,6 @@ const morgan = require('morgan');
 const favicon = require('serve-favicon');
 const path = require('path');
 const ensureLoggedIn = require('./config/ensureLoggedIn')
-const usersRoutes = require('./routes/api/users')
-const tasksRoutes = require('./routes/api/tasks')
 
 require('dotenv').config()
 //Connecting to the DB
@@ -21,8 +19,8 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(require('./config/checkToken'));
 
 //Routes
-// app.use('/api/users', require('./routes/api/users'))
-app.use('/api', usersRoutes,tasksRoutes)
+app.use('/api/users', require('./routes/api/users'))
+app.use('/api/tasks', require('./routes/api/tasks'))
 
 //Catch All is necessary to return the index.html on all non-AJAX requests
 app.get('/*', (req, res) => {

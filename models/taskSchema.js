@@ -13,9 +13,8 @@ const taskSchema = new Schema(
             required: false,
             default: false
         },
-        user: {
-            type: Schema.Types.ObjectId,
-            ref: 'User',
+        email: {
+            type: String,
             required: true
         }
     },

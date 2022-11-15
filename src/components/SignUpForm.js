@@ -7,7 +7,6 @@ export default class SignUpForm extends Component {
     state = {    
       name: '',
       email: '',
-      userId: '',
       password: '',
       confirm: '',
       error: ''
@@ -27,7 +26,6 @@ export default class SignUpForm extends Component {
           const formData = {
               name: this.state.name,
               email: this.state.email,
-              userId: this.state.userId,
               password: this.state.password
           }
           //pass the formData to the SignUp function (in users-service)
@@ -51,9 +49,6 @@ export default class SignUpForm extends Component {
 
                 <label>Email</label>
                 <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
-
-                <label>User ID</label>
-                <input type="userId" name="userId" value={this.state.userId} onChange={this.handleChange} required />
 
                 <label>Password</label>
                 <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
