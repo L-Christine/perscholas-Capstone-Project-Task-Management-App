@@ -4,19 +4,14 @@ const Schema = mongoose.Schema
 
 const taskSchema = new Schema(
     {
-        title: {
+        text: {
             type: String,
             required: true
         },
         completed: {
             type: Boolean,
-            required: false,
             default: false
         },
-        email: {
-            type: String,
-            required: true
-        }
     },
     {
         timestamps: true
