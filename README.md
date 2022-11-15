@@ -4,7 +4,7 @@ To Do list application using CRUD & MERN stack
 
 ## Description
 
-This is a simple to-do list app, where a user can sign up, log in and add tasks to the task board.
+This is a simple to-do list app, where a user can sign up, log in, log out and add tasks to the task board.
 
 Add a task to the blank textbox and press submit button. This will make a list of tasks.
 You can add, edit, or delete the tasks.
