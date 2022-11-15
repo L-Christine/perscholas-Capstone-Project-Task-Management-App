@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import TaskItem from './TaskItem';
-import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { createTask, readTask, deleteTask } from '../utilities/tasks-service'
 
@@ -8,7 +7,6 @@ export default function TaskList() {
   const [taskList, setTaskList] = useState([]);
   const [newTask, setNewTask] = useState('');
   
-  //Open Add form = true, Close Add form = false
   const [showAddTaskForm, setShowAddTaskForm] = useState(false);
 
   const showForm = () => {
@@ -18,8 +16,8 @@ export default function TaskList() {
 //====Function: Get all tasks from DB
   async function getTasks() {
     try {
-      const { data } = await readTask({});
-      setTaskList(data);
+      const { task } = await readTask({});
+      setTaskList(task);
     } catch (err) {
       console.log(err);
     }
@@ -50,8 +48,9 @@ export default function TaskList() {
       console.log(err);
     }
   };
-
+//====return
   return (
+
     <div>
       <h1>Tasks</h1>
       <div className='addBar'>
@@ -68,17 +67,10 @@ export default function TaskList() {
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
           />
-          <button type="submit">Submit</button>
+          <Button variant="primary" type="submit">Submit</Button>
       </form>
 
-      <table className='taskListTable'>
-          <tbody>
-            {taskList.map((task) => (
-              <TaskItem key={task._id} task={task} deleteTheTask={deleteTheTask} />
-            ))}
-          </tbody>
-        </table>
-      {/* {taskList ? (
+      {taskList ? (
         <table className='taskListTable'>
           <tbody>
             {taskList.map((task) => (
@@ -88,7 +80,7 @@ export default function TaskList() {
         </table>
       ) : (
         'No Task Found'
-      )} */}
+      )}
 
     </div>
   );

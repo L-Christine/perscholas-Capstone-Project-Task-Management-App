@@ -6,8 +6,6 @@ import NavBar from './components/NavBar';
 import AuthPage from './pages/AuthPage';
 import EditPage from './pages/EditPage'
 import HomePage from './pages/HomePage';
-import TaskList from './components/TaskList';
-
 
 function App() {
   //state to hold the user data. null == not logged in 

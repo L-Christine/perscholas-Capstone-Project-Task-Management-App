@@ -33,7 +33,7 @@ export default function TaskItem({ task, deleteTheTask }) {
         </td>
 
         <td>
-          <button type="submit" className='deleteBtn' onClick={() => deleteTheTask(task._id)}>X</button>
+          <button type="submit" value='Delete' className='deleteBtn' onClick={() => deleteTheTask(task._id)}>X</button>
         </td>
       </tr>
     );
