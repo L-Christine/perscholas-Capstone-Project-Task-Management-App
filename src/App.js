@@ -4,7 +4,6 @@ import { getUser } from './utilities/users-service'
 import './App.css';
 import NavBar from './components/NavBar';
 import AuthPage from './pages/AuthPage';
-import EditPage from './pages/EditPage'
 import HomePage from './pages/HomePage';
 
 function App() {
@@ -19,12 +18,8 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/edit' element={<EditPage />} />
         <Route path='/auth' element={<AuthPage />} />
       </Routes>
-
-      {/* <Toaster position='top-right' /> */}
-
       </>
       ): (<AuthPage setUser={setUser}/>)
       }

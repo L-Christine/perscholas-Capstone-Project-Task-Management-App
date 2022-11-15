@@ -31,7 +31,7 @@ async function updateTask (req, res) {
 
 async function deleteTask (req, res) {
     try {
-        const deleteThis = await Task.findByIdAndDelete(req.params.id);res.status(200).send('Deleted')
+        await Task.findByIdAndDelete(req.params.id);res.status(200).send('Deleted')
     } catch(err) {
         res.status(400).json(err)
     }

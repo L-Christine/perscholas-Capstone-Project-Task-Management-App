@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import * as userService from '../utilities/users-service'
 import { FaRegUser } from 'react-icons/fa'
 import { FiLogOut } from 'react-icons/fi'
-import { AiOutlineHome, AiOutlineEdit, AiOutlineMail } from 'react-icons/ai'
+import { AiOutlineHome, AiOutlineMail } from 'react-icons/ai'
 
 
 export default function NavBar({ user, setUser }) {
@@ -17,9 +17,6 @@ export default function NavBar({ user, setUser }) {
         <nav className='navbar'>
             <AiOutlineHome />
             <NavLink to="/"> Home</NavLink>
-            &nbsp; | &nbsp;
-            <AiOutlineEdit />
-            <NavLink to="/edit">Edit</NavLink>
             &nbsp; | &nbsp;
             <FaRegUser />
             <span> {user.name}</span>
