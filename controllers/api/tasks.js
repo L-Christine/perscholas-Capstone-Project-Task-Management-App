@@ -19,6 +19,15 @@ async function readTask (req, res) {
     }
 }
 
+async function editTask (req, res) {
+    try {
+        const editOneTasks = await Task.findById(req.params.id).select('text')
+        res.status(200).json(editOneTasks)
+    } catch(err) {
+        res.status(400).json(err)
+    }
+}
+
 async function updateTask (req, res) {
     try {
         const editTask = await Task.findByIdAndUpdate(
@@ -41,6 +50,7 @@ async function deleteTask (req, res) {
 module.exports = {
     createTask,
     readTask,
+    editTask,
     updateTask,
     deleteTask
 }

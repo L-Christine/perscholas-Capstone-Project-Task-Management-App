@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { getUser } from './utilities/users-service'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import NavBar from './components/NavBar';
 import AuthPage from './pages/AuthPage';

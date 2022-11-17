@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
 :root {
   --white: #FFFFFF;
   --color-5: #DFF6FF;
@@ -15,7 +17,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Secular One', sans-serif, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
   -webkit-font-smoothing: antialiased;

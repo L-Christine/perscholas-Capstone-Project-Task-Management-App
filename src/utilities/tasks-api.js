@@ -8,11 +8,11 @@ export function readTask(){
     return sendRequest(BASE_URL, 'GET')
 }
 
-export function updateTask(editTask){
+export function updateTask(id){
     return sendRequest(`BASE_URL/${editTask._id}`, 'PUT', editTask)
 }
 
-export function deleteTask(editTask){
+export function deleteTask(id){
     return sendRequest(`BASE_URL/${editTask._id}`, 'DELETE', editTask)
 }
 

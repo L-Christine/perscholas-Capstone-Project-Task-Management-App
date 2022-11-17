@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const favicon = require('serve-favicon');
 const path = require('path');
-const ensureLoggedIn = require('./config/ensureLoggedIn')
+
 
 require('dotenv').config()
 //Connecting to the DB
@@ -18,8 +18,9 @@ app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(require('./config/checkToken'));
 
-//Routes
+//Routes 
 app.use('/api/users', require('./routes/api/users'))
+//ensureLoggedIn to protect each user's info
 app.use('/api/tasks', require('./routes/api/tasks'))
 
 //Catch All is necessary to return the index.html on all non-AJAX requests

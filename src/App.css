@@ -14,18 +14,6 @@
 
 }
 
-body {
-    margin: 0;
-    font-family: 'Secular One', sans-serif, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    line-height: 1.3em;
-    font-size: 14px;
-    padding: 2vmin;
-    height: 100vh;
-  }
-  
 .App {
     height: 100vh;
     display: grid;
@@ -55,9 +43,5 @@ body {
 
 .newTaskForm {
   display: block;
-  text-align: center;
-}
-
-Table {
   text-align: center;
 }

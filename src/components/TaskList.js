@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import TaskItem from './TaskItem';
+// import Table from 'react-bootstrap/Table';
 
 export default function TaskList() {
   const [taskList, setTaskList] = useState([]);
@@ -29,7 +30,21 @@ export default function TaskList() {
     //add new data to the taskList
     setTaskList([{ ...data }, ...taskList]);
   };
+//====Function: Edit/Update an existing task
+  // async function updateTask(id) {
+  //   const [task, setTask] = useState({
+  //     text: ''
+  //   })
 
+  //   useEffect()
+  //   try {
+  //     const { data } = await axios.get(`/api/tasks/${id}`)
+  //     axios.put(`/api/tasks/${id}`)
+  //     setTaskList(taskList())
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
 //====Function: Delete a task
   async function deleteTask(id) {
     try {
