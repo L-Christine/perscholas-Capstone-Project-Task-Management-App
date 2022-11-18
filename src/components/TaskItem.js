@@ -42,7 +42,8 @@ export default function TaskItem({ task, deleteTask }) {
           {/* Edit Button */}
           <td>
             <FaEdit color='orange' type="button" value='edit' onClick={() => setShow(true)}/>
-            <EditModal show={show} setShow={setShow}/>
+            <EditModal show={show} setShow={setShow} />
+
           </td>
           {/* Checkbox */}
           <td>

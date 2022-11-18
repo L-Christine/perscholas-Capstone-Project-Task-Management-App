@@ -6,7 +6,7 @@ import TaskItem from './TaskItem';
 export default function TaskList() {
   const [taskList, setTaskList] = useState([]);
   const [newTask, setNewTask] = useState('');
-
+  // const [upTask, setUpTask] = useState('')
 //====Function: Get all tasks from DB
   async function getTasks() {
     try {
@@ -32,15 +32,10 @@ export default function TaskList() {
   };
 //====Function: Edit/Update an existing task
   // async function updateTask(id) {
-  //   const [task, setTask] = useState({
-  //     text: ''
-  //   })
-
-  //   useEffect()
   //   try {
-  //     const { data } = await axios.get(`/api/tasks/${id}`)
-  //     axios.put(`/api/tasks/${id}`)
-  //     setTaskList(taskList())
+  //     await axios.get(`/api/tasks/${id}`)
+  //     axios.put(`/api/tasks/${id}`, { text: upTask })
+  //     setUpTask('')
   //   } catch (err) {
   //     console.log(err);
   //   }
