@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt')
-
 const Schema = mongoose.Schema;
 //for password. SALT_ROUND is a processing time to perform the hash
 const SALT_ROUNDS = 6

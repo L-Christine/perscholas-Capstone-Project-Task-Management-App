@@ -1,20 +1,20 @@
 # Task Management Application
 
-To Do list application using CRUD & MERN stack
+To Do list application created using CRUD & MERN stack.
 
 ## Description
 
-This is a simple to-do list app, where a user can sign up, log in and add tasks to the task board.
-
-Add a task to the blank textbox and press submit button. This will make a list of tasks.
-You can add, edit, or delete the tasks.
-Once you are done with the tasks, click the checkbox and 'incomplete' status will change to 'complete.'
-
-**Edit function is not available
+This is a simple to-do list app, where a user can sign up, log in and add tasks to the task board. Add a task to the blank textbox and press submit button. This will make a list of tasks. You can add, edit, or delete the tasks. Once you are done with the tasks, click the checkbox and 'in progress' status will change to 'complete.'
 
 ## Images
-<img src='./public/readme1.JPG'>
-<img src='./public/readme2.JPG'>
+<img src='./public/readme1.JPG' alt='sign-up form'>
+<img src='./public/readme2.JPG' alt='log-in form'>
+<img src='./public/readme3.JPG' alt='to-do list'>
+<img src='./public/readme4.JPG' alt='edit form'>
+
+### Errors & Future Fixes
+- Edit: save change is not functional
+- All data is shared between the users
 
 ### Tech Stack
 - React js
@@ -23,14 +23,11 @@ Once you are done with the tasks, click the checkbox and 'incomplete' status wil
 - Express
 - MongoDB
 
-
-
-
-# Getting Started with Create React App
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 

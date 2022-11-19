@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 export default function EditModal({ show, setShow }) {
+  
   return (
     <>
       <Modal show={show} backdrop="static" onHide={() => setShow(false)} >

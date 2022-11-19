@@ -19,7 +19,6 @@ app.use(require('./config/checkToken'));
 
 //Routes 
 app.use('/api/users', require('./routes/api/users'))
-//ensureLoggedIn to protect each user's info
 app.use('/api/tasks', require('./routes/api/tasks'))
 
 //Catch All is necessary to return the index.html on all non-AJAX requests

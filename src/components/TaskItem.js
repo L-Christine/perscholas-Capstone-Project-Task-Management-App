@@ -3,7 +3,7 @@ import axios from 'axios'
 import moment from 'moment';
 import { FaWindowClose, FaEdit } from 'react-icons/fa'
 import Table from 'react-bootstrap/Table';
-import EditModal from './Modal'
+import EditModal from './EditModal'
 
 
 export default function TaskItem({ task, deleteTask }) {
@@ -28,9 +28,9 @@ export default function TaskItem({ task, deleteTask }) {
           <th></th>
           <th></th>
           <th></th>
-          <th>Task</th>
-          <th>Status</th>
-          <th>Created At</th>
+          <th></th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -43,7 +43,6 @@ export default function TaskItem({ task, deleteTask }) {
           <td>
             <FaEdit color='orange' type="button" value='edit' onClick={() => setShow(true)}/>
             <EditModal show={show} setShow={setShow} />
-
           </td>
           {/* Checkbox */}
           <td>

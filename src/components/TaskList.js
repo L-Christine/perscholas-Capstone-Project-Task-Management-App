@@ -67,15 +67,12 @@ export default function TaskList() {
           <button className='submitBtn' type="submit">Submit</button>
       </form>
 
-      {taskList ? (
-        <div className='taskList'>
-            {taskList.map((task) => (
-              <TaskItem key={task._id} task={task} deleteTask={deleteTask} />
-            ))}
-        </div>
-      ) : (
-        'No Task Found'
-      )}
+      
+      <div className='taskList'>
+        {taskList && taskList.map((task) => (
+        <TaskItem key={task._id} task={task} deleteTask={deleteTask} />
+        ))}
+      </div>
 
     </div>
   );
